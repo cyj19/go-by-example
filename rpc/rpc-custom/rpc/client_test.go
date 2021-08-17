@@ -13,7 +13,7 @@ type User struct {
 }
 
 // 定义用于服务端注册的函数
-func QueryUser(uid int, u User) error {
+func QueryUser(uid int) (User, error) {
 	// 简单模拟数据库
 	users := make(map[int]User)
 	users[0] = User{"one", 20}
@@ -22,11 +22,10 @@ func QueryUser(uid int, u User) error {
 
 	// 模拟查询用户
 	if user, ok := users[uid]; ok {
-		u = user
-		return nil
+		return user, nil
 	}
 
-	return fmt.Errorf("无此用户：%d", uid)
+	return User{}, fmt.Errorf("无此用户：%d", uid)
 }
 
 func TestClientServer(t *testing.T) {
@@ -45,12 +44,11 @@ func TestClientServer(t *testing.T) {
 	conn, _ := net.Dial("tcp", addr)
 	client := NewClient(conn)
 	// 声明函数原型
-	var query func(int, User) error
+	var query func(int) (User, error)
 	// RPC调用
 	client.Call(rpcName, &query)
 	// 调用函数query
-	var user User
-	err := query(1, user)
+	user, err := query(1)
 	if err != nil {
 		fmt.Println("err:", err)
 	}
