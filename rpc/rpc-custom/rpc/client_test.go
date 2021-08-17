@@ -22,6 +22,7 @@ func QueryUser(uid int) (User, error) {
 
 	// 模拟查询用户
 	if user, ok := users[uid]; ok {
+
 		return user, nil
 	}
 
@@ -33,7 +34,7 @@ func TestClientServer(t *testing.T) {
 	gob.Register(User{})
 	// 创建服务端
 	addr := "127.0.0.1:8080"
-	rpcName := "selectUser"
+	rpcName := "QueryUser"
 	server := NewServer(addr)
 	// 注册函数
 	server.Register(rpcName, QueryUser)
@@ -48,6 +49,7 @@ func TestClientServer(t *testing.T) {
 	// RPC调用
 	client.Call(rpcName, &query)
 	// 调用函数query
+	var user User
 	user, err := query(1)
 	if err != nil {
 		fmt.Println("err:", err)
