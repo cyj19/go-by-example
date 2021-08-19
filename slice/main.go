@@ -35,7 +35,13 @@ func main() {
 
 }
 
-// 模拟实现append函数
+/*
+	模拟实现append函数
+	1. 创建新slice
+	2. 检测容量
+	3. copy旧slice到新slice
+	4. 添加元素
+*/
 func appendInt(x []int, y int) []int {
 	// 新slice
 	var z []int
