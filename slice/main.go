@@ -2,6 +2,11 @@ package main
 
 import "fmt"
 
+/*
+	Q：slice[i:j] j代表什么？
+	A：i表示元素下标，j不是下标也不是个数，j-1才代表元素下标；slice[i:j] 表示 从下标i开始到下标j-1，元素个数为j-i, cap为i开始到原slice的最后一个元素的个数
+*/
+
 func main() {
 	s := []int{1, 2, 3, 4, 5, 6}
 	c := make([]int, 6)
@@ -13,6 +18,7 @@ func main() {
 	fmt.Println(s[0:1], len(s[0:1]), cap(s[0:1])) // [1] len=1 cap=6
 	fmt.Println(s[2:], len(s[2:]), cap(s[2:]))    //[3 4 5 6] len=4 cap=4
 	fmt.Println(s[:3], len(s[:3]), cap(s[:3]))    // [1 2 3] len=3 cap=6
+	fmt.Println(s[1:5], len(s[1:5]), cap(s[1:5])) // [2 3 4 5] len=4 cap=5
 }
 
 // 模拟实现append函数
