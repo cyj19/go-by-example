@@ -5,6 +5,9 @@ import "fmt"
 /*
 	Q：slice[i:j] j代表什么？
 	A：i表示元素下标，j不是下标也不是个数，j-1才代表元素下标；slice[i:j] 表示 从下标i开始到下标j-1，元素个数为j-i, cap为i开始到原slice的最后一个元素的个数
+
+	Q: slice扩容后，原来slice[i:j]的存放的指针会改变吗?
+	A：不会，扩容后slice指向了新的底层数组，所以原slice[i:j]和扩容后的slice无任何关系
 */
 
 func main() {
@@ -19,6 +22,17 @@ func main() {
 	fmt.Println(s[2:], len(s[2:]), cap(s[2:]))    //[3 4 5 6] len=4 cap=4
 	fmt.Println(s[:3], len(s[:3]), cap(s[:3]))    // [1 2 3] len=3 cap=6
 	fmt.Println(s[1:5], len(s[1:5]), cap(s[1:5])) // [2 3 4 5] len=4 cap=5
+
+	// 证明扩容前后s[1:5]指向的底层数组的地址不变
+	fmt.Printf("扩容前s地址：%p \n", &s[0])
+	var s1 = s[1:5]
+	fmt.Printf("扩容前s[1:5]地址：%p \n", &s1[0])
+	s = append(s, 7, 8)
+	fmt.Printf("扩容后地址：%p \n", &s[0])
+	fmt.Printf("扩容后s[1:5]地址：%p \n", &s1[0])
+	s1[0] = 9
+	fmt.Println(s)
+
 }
 
 // 模拟实现append函数
