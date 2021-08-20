@@ -32,7 +32,11 @@ func main() {
 	fmt.Printf("扩容后s[1:5]地址：%p \n", &s1[0])
 	s1[0] = 9
 	fmt.Println(s)
+	var p *[5]int
+	a := [5]int{1, 2, 3, 4, 5}
+	p = &a
 
+	fmt.Println(reverseArr(p))
 }
 
 /*
@@ -69,4 +73,15 @@ func appendInt(x []int, y int) []int {
 	z[len(x)] = y
 	return z
 
+}
+
+// 重写reverse函数，使用数组指针代替slice
+func reverseArr(p *[5]int) *[5]int {
+
+	l := len(p)
+	var arr [5]int
+	for i := 0; i < l; i++ {
+		arr[i] = p[l-1-i]
+	}
+	return &arr
 }
