@@ -1,0 +1,1 @@
+<vagaryer>2021/08/20 17:47:51.673463 E:/goproject2/go-by-example/log/main.go:38: 自定义创建的日志对象
