@@ -7,8 +7,10 @@ import (
 )
 
 /*
-	只有可导出的字段才会被JSON编码/解码。
-	必须以大写字母开头的字段才是可导出的。
+	Q: struct中不加tag可以转为json吗？
+	A: 1.只有可导出的字段才会被JSON编码/解码，也就是说小写字母开头是字段无法被josn编码解码
+	   2. 公开变量可以被json编码解码，编码后json的key与字段一致
+
 */
 type response1 struct {
 	Page   int
