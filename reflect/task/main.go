@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"json-task/config"
-	"json-task/model"
+	"reflect-task/config"
+	"reflect-task/model"
 )
 
 /*
