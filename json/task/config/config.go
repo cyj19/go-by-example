@@ -32,7 +32,7 @@ func MarshalFile(data interface{}) error {
 	return nil
 }
 
-func UnMarshalFiel(result interface{}) error {
+func UnMarshalFile(result interface{}) error {
 	data, err := ioutil.ReadFile("./config.ini")
 	if err != nil {
 		return err
@@ -87,7 +87,7 @@ func Marshal(data interface{}) ([]byte, error) {
 				fieldTagVal = keyField.Name
 			}
 			// 拼接为xx = yy
-			item := fmt.Sprintf("%s=%v\n", fieldTagVal, valField.Interface())
+			item := fmt.Sprintf("%s = %v\n", fieldTagVal, valField.Interface())
 			conf = append(conf, item)
 		}
 

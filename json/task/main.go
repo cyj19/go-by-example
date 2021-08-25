@@ -36,7 +36,7 @@ func marshalDemo() {
 // 配置文件反序列为struct
 func unmarshalDemo() {
 	conf := &model.Config{}
-	fmt.Println(config.UnMarshalFiel(conf))
+	fmt.Println(config.UnMarshalFile(conf))
 	fmt.Println(conf)
 }
 
