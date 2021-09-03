@@ -1,4 +1,4 @@
-module zap-sugar-example
+module github.com/vagaryer/go-by-example/zap-sugar-example
 
 go 1.16
 

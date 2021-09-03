@@ -1,4 +1,4 @@
-module hello-client
+module github.com/vagaryer/go-by-example/hello-client
 
 go 1.16
 

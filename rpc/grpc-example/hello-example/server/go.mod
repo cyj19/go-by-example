@@ -1,4 +1,4 @@
-module hello-server
+module github.com/vagaryer/go-by-example/hello-server
 
 go 1.16
 
