@@ -11,6 +11,7 @@ import (
 /*
 	zap自定义日志打印
 	lumberjack进行日志切割归档
+	大致思路：创建编码器配置->创建编码器->创建日志文件->创建core->创建logger
 */
 
 var sugarLogger *zap.SugaredLogger
@@ -54,7 +55,7 @@ func getLogWriter() zapcore.WriteSyncer {
 		Filename:   "./test.log", // 日志文件位置
 		MaxSize:    1,            // 单个日志文件最大大小
 		MaxAge:     30,           // 保留旧日志文件的最大天数
-		MaxBackups: 5,            // 保留旧日志文件的最大天数
+		MaxBackups: 5,            // 最多保留旧日志文件备份个数
 		Compress:   false,        // 是否压缩旧日志文件
 	}
 	return zapcore.AddSync(lumberjackLogger)
