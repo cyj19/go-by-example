@@ -1,4 +1,4 @@
-module viper-example
+module github.com/vagaryer/viper-example
 
 go 1.16
 
