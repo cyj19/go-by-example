@@ -64,7 +64,7 @@ func main() {
 		// ServeConn在单个连接上执行DefaultServer。ServeConn会阻塞，服务该连接直到客户端挂起。调用者一般应另开线程调用本函数："go serveConn(conn)"。ServeConn在该连接使用JSON编解码格式。
 		go func(conn net.Conn) {
 			fmt.Println("json client")
-			jsonrpc.ServeConn(conn)
+			rpc.ServeCodec(jsonrpc.NewServerCodec(conn))
 		}(conn)
 	}
 

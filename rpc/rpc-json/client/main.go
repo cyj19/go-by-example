@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"log"
+	"net"
+	"net/rpc"
 	"net/rpc/jsonrpc"
 )
 
@@ -18,19 +20,22 @@ type ArithResponse struct {
 
 func main() {
 	// 连接服务端
-	conn, err := jsonrpc.Dial("tcp", ":8080")
+	conn, err := net.Dial("tcp", ":8080")
+	//conn, err := jsonrpc.Dial("tcp", ":8080")
 	if err != nil {
 		log.Fatalf("连接失败：%v", err)
 	}
 
+	client := rpc.NewClientWithCodec(jsonrpc.NewClientCodec(conn))
+
 	ar := new(ArithResponse)
-	err = conn.Call("Arith.Multiply", ArithParam{5, 10}, ar)
+	err = client.Call("Arith.Multiply", ArithParam{5, 10}, ar)
 	if err != nil {
 		log.Fatalln(err)
 	}
 	fmt.Println("mutiply:", ar.Pro)
 
-	err = conn.Call("Arith.Divide", ArithParam{5, 9}, ar)
+	err = client.Call("Arith.Divide", ArithParam{5, 9}, ar)
 	if err != nil {
 		log.Fatalln(err)
 	}
