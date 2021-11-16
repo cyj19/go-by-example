@@ -9,6 +9,8 @@ option go_package = "/hello";
 // 定义一个service
 service Hello {
     rpc SayHello(HelloRequest) returns (HelloResponse) {};
+    // 增加一个支持双向流的方法
+    rpc Channel (stream StreamRequest) returns (stream StreamResponse);
 }
 
 // 定义请求结构体
@@ -19,4 +21,12 @@ message HelloRequest {
 // 定义响应结构体
 message HelloResponse {
     string message = 1;
+}
+
+message StreamRequest {
+    string data = 1;
+}
+
+message StreamResponse {
+    string data = 1;
 }
