@@ -5,6 +5,10 @@
 
 // Package pubsub implements a simple multi-topic pub-sub library
 // pubsub包是一个简单的多主题发布订阅库
+// 基本思路：发布者和订阅者是多对多的关系，发布者需要维护自己的主题和订阅队列
+// 主题：一个过滤函数
+// 订阅：增加一个订阅队列和订阅的主题
+// 发布：遍历所有订阅队列，使用主题处理消息，并发送到订阅队列中
 package pubsub
 
 import (
@@ -13,7 +17,7 @@ import (
 )
 
 type (
-	subscriber chan interface{}         // 订阅者为一个管道
+	subscriber chan interface{}         // 订阅队列为一个管道
 	topicFunc  func(v interface{}) bool // 主题是一个过滤器
 )
 
