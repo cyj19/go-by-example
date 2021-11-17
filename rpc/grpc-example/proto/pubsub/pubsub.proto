@@ -1,0 +1,13 @@
+// 声明语法版本
+syntax = "proto3";
+// 声明存放目录和包名
+option go_package = "./;pubsub";
+
+service PubsubService {
+  rpc Public (String) returns (String) {};
+  rpc Subscribe (String) returns (stream String) {};
+}
+
+message String {
+  string value = 1;
+}

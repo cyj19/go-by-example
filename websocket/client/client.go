@@ -27,7 +27,7 @@ func main() {
 	signal.Notify(interrupt, os.Interrupt, os.Kill)
 	// 构建连接地址
 	u := url.URL{Scheme: "ws", Host: *addr, Path: "/echo"}
-	log.Println("client connecting to ", u.String())
+	log.Println("client1 connecting to ", u.String())
 	// 拨号
 	conn, _, err := websocket.DefaultDialer.Dial(u.String(), nil)
 	if err != nil {
@@ -58,7 +58,7 @@ func receive(conn *websocket.Conn, done chan<- struct{}) {
 	for {
 		mt, msg, err := conn.ReadMessage()
 		if err != nil {
-			log.Println("client read message error:", err.Error())
+			log.Println("client1 read message error:", err.Error())
 			break
 		}
 		fmt.Printf("messageType:%d message:%s \n", mt, string(msg))

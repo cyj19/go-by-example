@@ -1,10 +1,8 @@
 // 声明使用protobuf版本为proto3
 syntax = "proto3";
-// 默认包名
-package hello;
 
 // v1.4.0以上要求go_package必须/
-option go_package = "/hello";
+option go_package = "./;hello";
 
 // 定义一个service
 service Hello {
