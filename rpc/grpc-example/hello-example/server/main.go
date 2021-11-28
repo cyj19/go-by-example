@@ -9,7 +9,7 @@ package main
 import (
 	"context"
 	"fmt"
-	"github.com/vagaryer/go-by-example/rpc/grpc-example/proto/hello"
+	"github.com/cyj19/go-by-example/rpc/grpc-example/proto/hello"
 
 	"io"
 	"log"

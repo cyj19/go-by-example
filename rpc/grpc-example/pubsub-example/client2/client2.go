@@ -9,7 +9,7 @@ package main
 import (
 	"context"
 	"fmt"
-	pb "github.com/vagaryer/go-by-example/rpc/grpc-example/proto/pubsub"
+	pb "github.com/cyj19/go-by-example/rpc/grpc-example/proto/pubsub"
 	"google.golang.org/grpc"
 	"io"
 	"log"

@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 
-	"github.com/vagaryer/go-by-example/reflect-task/config"
-	"github.com/vagaryer/go-by-example/reflect-task/model"
+	"github.com/cyj19/go-by-example/reflect-task/config"
+	"github.com/cyj19/go-by-example/reflect-task/model"
 )
 
 /*

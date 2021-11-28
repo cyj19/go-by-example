@@ -1,4 +1,4 @@
-module github.com/vagaryer/go-by-example/rpc/grpc-example/proto/hello
+module github.com/cyj19/go-by-example/rpc/grpc-example/proto/hello
 
 go 1.16
 

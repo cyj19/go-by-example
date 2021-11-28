@@ -1,4 +1,4 @@
-module github.com/vagaryer/go-by-example/rpc/grpc-example/proto/pubsub
+module github.com/cyj19/go-by-example/rpc/grpc-example/proto/pubsub
 
 go 1.16
 

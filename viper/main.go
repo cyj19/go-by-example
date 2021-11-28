@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 
+	"github.com/cyj19/viper-example/config"
 	"github.com/spf13/viper"
-	"github.com/vagaryer/viper-example/config"
 )
 
 /*

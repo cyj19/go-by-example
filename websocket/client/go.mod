@@ -1,4 +1,4 @@
-module gihub.com/vagaryer/go-by-example/websocket/client
+module gihub.com/cyj19/go-by-example/websocket/client
 
 go 1.16
 

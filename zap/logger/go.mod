@@ -1,4 +1,4 @@
-module github.com/vagaryer/go-by-example/zap-logger-example
+module github.com/cyj19/go-by-example/zap-logger-example
 
 go 1.16
 

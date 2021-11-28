@@ -1,4 +1,4 @@
-module github.com/vagaryer/go-by-example/websocket/server
+module github.com/cyj19/go-by-example/websocket/server
 
 go 1.16
 

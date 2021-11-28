@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/vagaryer/go-by-exmaple/publish-subscribe/pubsub"
+	"github.com/cyj19/go-by-exmaple/publish-subscribe/pubsub"
 	"strings"
 	"time"
 )
