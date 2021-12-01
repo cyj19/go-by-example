@@ -6,5 +6,5 @@
 
 <p align="center">
 <img src="https://img.shields.io/badge/Go-v1.16-blue" alt="Go version"/>
-<img src="https://img.shields.io/github/license/vagaryer/go-by-example" alt="License" />
+<img src="https://img.shields.io/github/license/cyj19/go-by-example" alt="License" />
 </p>
