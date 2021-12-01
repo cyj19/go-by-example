@@ -121,6 +121,8 @@ func handleConn(conn net.Conn) {
 			select {
 			case <-timer.C:
 				_ = conn.Close()
+				// 超时退出该goroutine，防止泄露
+				return
 			case <-userActive:
 				timer.Reset(d)
 			}
